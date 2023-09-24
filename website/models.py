@@ -1,7 +1,7 @@
 #. means __init__
 from . import db
 from flask_login import UserMixin
-from sql_alchemy.sql import func
+from sqlalchemy.sql import func
 
 # model = table 
 # define all the columns that are going to be in our user table
@@ -11,4 +11,4 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    date_created = db.Column(db.Date(timezone=True), default=funct.now())
+    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
