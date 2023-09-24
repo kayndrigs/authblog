@@ -7,6 +7,7 @@ Dependencies:
 2. SQLite
 3. SQLAlchemy
 4. Jinja API
+5. Table Plus for checking rows and columns in db file
 
 References: 
 

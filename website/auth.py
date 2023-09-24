@@ -1,6 +1,6 @@
 # routes related to authentication
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from . import db
 from .models import User
 from flask_login import login_user, logout_user, login_required, current_user
@@ -18,6 +18,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password,password):
+                session['logged_in'] = True
                 flash("Logged in!", category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
@@ -69,5 +70,6 @@ def sign_up():
 @auth.route("/logout")
 @login_required
 def logout():
+    session['logged_in'] = False
     logout_user()
     return redirect(url_for("views.home"))
