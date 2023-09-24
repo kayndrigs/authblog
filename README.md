@@ -1,8 +1,12 @@
 #authblog
 
-Created a login page using flask + bootstrap services.
+Created a login page pure Python APIs and HTML + CSS webpages.
 
-
+Dependencies:
+1. Flask API
+2. SQLite
+3. SQLAlchemy
+4. Jinja API
 
 References: 
 
